@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+    <style>
+
+      body {
+        margin: 1em;
+      }
+
+      a {
+        text-decoration: none;
+        background: #eee;
+        padding: .5em;
+        margin-bottom: 1em;
+        display: inline-block;
+      }
+
+      .box {
+        display: block;
+        background: lightblue;
+        margin-bottom: 1em;
+      }
+
+      #fade-in {
+        height: 150px;
+        width: 1px;
+        opacity: 0;
+        transition: all .75s ease;
+      }
+
+      #fade-in.show {
+        opacity: 1;
+        height: 150px;
+        width: 500px;
+        background: red;
+      }
+
+      #spin-in {
+        opacity: .2;
+        height: 50px;
+        width: 50px;
+        transform: translateX(0) rotate(0deg);
+        transition: all .75s ease;
+      }
+
+      #spin-in.show2 {
+        transform: translateX(450px) rotate(720deg);
+        opacity: 1;
+        background: green;
+      }
+
+      #grow-up {
+        opacity: .2;
+        height: 50px;
+        width: 50px;
+        transform: translateX(0) rotate(0deg);
+        transition: all .75s ease;
+      }
+
+      #grow-up.show2 {
+        height: 200px;
+        width: 200px;
+        opacity: 1;
+        transform: translateX(0) rotate(720deg);
+        background: yellow;
+      }
+
+      #circle-change {
+        opacity: .2;
+        height: 50px;
+        width: 50px;
+        transform: translateX(0) rotate(0deg);
+        transition: all .75s ease;
+      }
+
+      #circle-change.show2 {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        opacity: 1;
+        transform: translateX(0) rotate(720deg);
+        background: blue;
+      }
+
+      h1.spacing {
+        letter-spacing: 0;
+        opacity: .5;
+        transition: all .75s ease-out;
+      }
+
+      h1.spacing.spaced {
+        opacity: 1;
+        letter-spacing: 10px;
+        color: red;
+      }
+
+    </style>
+
+  </head>
+  <body>
+
+    <a class="slide" href="#">Slide Out</a>
+    <a class="spin" href="#">Spin</a>
+
+    <div id="fade-in" class="box"></div>
+    <div id="spin-in" class="box"></div>
+
+    <h1 class="spacing">I Stretch!</h1>
+
+    <div id="grow-up" class="box"></div>
+
+    <div id="circle-change" class="box"></div>
+
+    <script>
+
+        $('.slide').on('click', function(){
+            $('#fade-in').toggleClass('show');
+        });
+
+        $('.spin').on('click', function(){
+            $('#spin-in').toggleClass('show2');
+        });
+
+        $('h1.spacing').on('mouseenter', function(){
+          $(this).toggleClass('spaced');
+          $(this).html('Arrgghhh!');
+        });
+
+        $('h1.spacing').on('mouseleave', function(){
+          $(this).toggleClass('spaced');
+          $(this).html('I Stretch!');
+        });
+
+        $('#grow-up').on('click', function(){
+            $('#grow-up').toggleClass('show2');
+        });
+
+        $('#circle-change').on('click', function(){
+            $('#circle-change').toggleClass('show2');
+        });
+
+    </script>
+
+  </body>
+</html>
